@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <link>https://minaminao.github.io/</link>
-    <description>Recent content on </description>
+    <title>( ˘ω˘ )</title>
+    <link>https://minaminao.com/</link>
+    <description>Recent content on ( ˘ω˘ )</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 11 Oct 2019 03:36:45 +0900</lastBuildDate>
     
-	<atom:link href="https://minaminao.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://minaminao.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My First Post</title>
-      <link>https://minaminao.github.io/post/my-first-post/</link>
+      <link>https://minaminao.com/post/my-first-post/</link>
       <pubDate>Fri, 11 Oct 2019 03:36:45 +0900</pubDate>
       
-      <guid>https://minaminao.github.io/post/my-first-post/</guid>
+      <guid>https://minaminao.com/post/my-first-post/</guid>
       <description>Hello</description>
     </item>
     
