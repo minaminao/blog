@@ -10,7 +10,7 @@ tags: ["Blockchain", "CTF"]
 
 の3日目に開催されたworkshop「[Nuts and Bolts of Cross-Chain Communication](https://devcon.org/agenda?talk=recmTw2dH0oMt9Dzb)」でのCTFが新鮮で面白かったです。(DEFCONではない)
 
-問題はシンプルで、「Bitcoinのブロックチェーンを構築するEthereumなスマートコントラクトを、不正なブロックが送られても対処できるように直してね」というもの。なんでこういう問題かっていうのは、[彼らのクロスチェーンコミュニケーションの論文](https://eprint.iacr.org/2019/1128.pdf)を参照。
+問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られても対処できるようになっていない。直してね」というもの。なんでこういう問題かっていうのは、[彼らのクロスチェーンコミュニケーションの論文](https://eprint.iacr.org/2019/1128.pdf)を参照。
 
 Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。
 
@@ -135,7 +135,7 @@ it("TESTCASE 5: weak block submission - should fail",
 uint256 target = getTargetFromHeader(blockHeaderBytes)
 ```
 
-で、Difficulty target を取得している。
+で、difficulty target を取得している。
 ブロックのハッシュ値がこれを上回らなければOK。
 
 ```
