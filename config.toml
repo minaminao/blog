@@ -1,7 +1,7 @@
 publishDir = "docs"
 baseurl = "https://minaminao.com"
 DefaultContentLanguage = "en"
-# title = "minaminao"
+title = "( ˘ω˘ )"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
