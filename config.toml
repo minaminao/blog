@@ -1,5 +1,5 @@
 publishDir = "docs"
-baseurl = "localhost:1313"
+baseurl = "https://minaminao.com"
 DefaultContentLanguage = "en"
 # title = "minaminao"
 theme = "beautifulhugo"
