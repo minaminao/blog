@@ -1,7 +1,7 @@
 ---
-title: Devcon 5 - “Chain Relay Under Attack CTF” Writeup
+title: Devcon 5 - "Chain Relay Under Attack CTF" Writeup
 date: 2019-10-11T13:55:33+09:00
-draft: true
+draft: false
 bigimg: [{src: "/img/relay-attack.png"}]
 tags: ["Blockchain", "CTF"]
 ---
