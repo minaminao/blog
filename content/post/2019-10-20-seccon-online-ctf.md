@@ -1,7 +1,7 @@
 ---
 title: "SECCON 2019 Online CTF Writeup"
 date: 2019-10-20T18:15:23+09:00
-draft: true
+draft: false
 bigimg: [{src: "/img/seccon-2019-online-ctf.png"}]
 tags: ["CTF"]
 ---
