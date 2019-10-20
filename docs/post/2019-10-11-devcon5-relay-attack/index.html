@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Devcon 5 - &#34;Chain Relay Under Attack CTF&#34; Writeup - minaminao</title>
+  <meta name="description" content="Devcon 5 // Oct 8 - 11, 2019
+の3日目に開催されたworkshop「Nuts and Bolts of Cross-Chain Communication」でのCTFが新鮮で面白かったです。(DEFCONではない)
+問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、彼らのクロスチェーンコミュニケーションの論文を参照。
+Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。
+問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
+attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
+TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
+it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。">
+  <meta name="author" content="minaminao"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "minaminao",
+    
+    "url": "https:\/\/minaminao.com"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/minaminao.com"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/minaminao.com",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/minaminao.com\/post\/2019-10-11-devcon5-relay-attack\/",
+          "name": "Devcon 5 \x22 chain relay under attack c t f\x22 writeup"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "minaminao"
+  },
+  "headline": "Devcon 5 - \x22Chain Relay Under Attack CTF\x22 Writeup",
+  "description" : "Devcon 5 \/\/ Oct 8 - 11, 2019\nの3日目に開催されたworkshop「Nuts and Bolts of Cross-Chain Communication」でのCTFが新鮮で面白かったです。(DEFCONではない)\n問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、彼らのクロスチェーンコミュニケーションの論文を参照。\nFlagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。\n問題 問題リポジトリ: crossclaim\/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop\nattackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。\nTESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース\nit(\x26#34;TESTCASE 1: set duplicate initial parent - should fail\x26#34;, async () =\x26gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。",
+  "inLanguage" : "en",
+  "wordCount":  430 ,
+  "datePublished" : "2019-10-11T13:55:33",
+  "dateModified" : "2019-10-11T13:55:33",
+  "image" : "https:\/\/minaminao.com\/img\/avatar-minaminao.png",
+  "keywords" : [ "Blockchain, CTF" ],
+  "mainEntityOfPage" : "https:\/\/minaminao.com\/post\/2019-10-11-devcon5-relay-attack\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/minaminao.com",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/minaminao.com\/img\/avatar-minaminao.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Devcon 5 - &#34;Chain Relay Under Attack CTF&#34; Writeup" />
+<meta property="og:description" content="Devcon 5 // Oct 8 - 11, 2019
+の3日目に開催されたworkshop「Nuts and Bolts of Cross-Chain Communication」でのCTFが新鮮で面白かったです。(DEFCONではない)
+問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、彼らのクロスチェーンコミュニケーションの論文を参照。
+Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。
+問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
+attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
+TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
+it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。">
+<meta property="og:image" content="https://minaminao.com/img/avatar-minaminao.png" />
+<meta property="og:url" content="https://minaminao.com/post/2019-10-11-devcon5-relay-attack/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="minaminao" />
+
+  <meta name="twitter:title" content="Devcon 5 - &#34;Chain Relay Under Attack CTF&#34; Writeup" />
+  <meta name="twitter:description" content="Devcon 5 // Oct 8 - 11, 2019
+の3日目に開催されたworkshop「Nuts and Bolts of Cross-Chain Communication」でのCTFが新鮮で面白かったです。(DEFCONではない)
+問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送ら …">
+  <meta name="twitter:image" content="https://minaminao.com/img/avatar-minaminao.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@vinami" />
+  <meta name="twitter:creator" content="@vinami" />
+  <link href='https://minaminao.com/img/favicon-minaminao.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.58.3" />
+  <link rel="alternate" href="https://minaminao.com/index.xml" type="application/rss+xml" title="minaminao"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://minaminao.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://minaminao.com/css/highlight.min.css" /><link rel="stylesheet" href="https://minaminao.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://minaminao.com">minaminao</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="minaminao" href="https://minaminao.com">
+            <img class="avatar-img" src="https://minaminao.com/img/avatar-minaminao.png" alt="minaminao" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 
+      
+         
+          data-img-src-1="/img/relay-attack.png" 
+         
+         
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Devcon 5 - &#34;Chain Relay Under Attack CTF&#34; Writeup</h1>
+                  
+                  
+                    <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 11, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;430&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;minaminao
+    
+  
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Devcon 5 - &#34;Chain Relay Under Attack CTF&#34; Writeup</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 11, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;430&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;minaminao
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p><a href="https://devcon.org/">Devcon 5 // Oct 8 - 11, 2019</a></p>
+
+<p>の3日目に開催されたworkshop「<a href="https://devcon.org/agenda?talk=recmTw2dH0oMt9Dzb">Nuts and Bolts of Cross-Chain Communication</a>」でのCTFが新鮮で面白かったです。(DEFCONではない)</p>
+
+<p>問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、<a href="https://eprint.iacr.org/2019/1128.pdf">彼らのクロスチェーンコミュニケーションの論文</a>を参照。</p>
+
+<p>Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。</p>
+
+<h2 id="問題">問題</h2>
+
+<p>問題リポジトリ: <a href="https://github.com/crossclaim/devcon5-relay-attack">crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop</a></p>
+
+<p><code>attackTestCases.test.min.js</code>にサンプルケースが転がってます。
+testで結果が変わることがあって大変でした。</p>
+
+<h3 id="testcase-1-do-we-allow-users-to-reset-the-relay-with-a-new-genesis-block-at-will">TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will??</h3>
+
+<p><strong>サンプルケース</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">setInitialParent</span><span class="p">(</span><span class="nx">genesis</span><span class="p">.</span><span class="nx">header</span><span class="p">,</span>
+            <span class="nx">genesis</span><span class="p">.</span><span class="nx">height</span><span class="p">))</span>
+    <span class="p">}),</span>
+</code></pre></div>
+<p>Genesis block が改ざんされないようにする問題。</p>
+<div class="highlight"><pre class="chroma">require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET);</pre></div>
+<p>や</p>
+<div class="highlight"><pre class="chroma">require(_heaviestHeight == 0, ERR_GENESIS_ALREADY_SET);</pre></div>
+<p>を追加すればいい。</p>
+
+<h3 id="testcase-2-maybe-we-should-not-allow-duplicate-submissions">TESTCASE 2: Maybe we should not allow duplicate submissions?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 2: duplicate block submission - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span>
+            <span class="s2">&#34;StoreHeader&#34;</span><span class="p">,</span>
+            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
+            <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">),</span>
+                <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_DUPLICATE_BLOCK</span><span class="p">)</span>
+    <span class="p">}),</span>
+</code></pre></div>
+<p>すでに block が store されてきたらダメ。</p>
+<div class="highlight"><pre class="chroma">require(_headers[hashCurrentBlock].merkleRoot == 0, ERR_DUPLICATE_BLOCK_SUBMISSION);</pre></div>
+<h3 id="testcase-3a-3b-block-header-is-provided-by-the-user-what-could-go-wrong">TESTCASE 3a, 3b: block header is provided by the user. What could go wrong??</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 3a: too large block header - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span> <span class="o">+</span> <span class="s2">&#34;123&#34;</span><span class="p">),</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_INVALID_HEADER</span><span class="p">)</span>
+    <span class="p">}),</span>
+<span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 3b: too small block header - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
+            <span class="mi">28</span><span class="p">)),</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_INVALID_HEADER</span><span class="p">)</span>
+    <span class="p">}),</span>
+</code></pre></div>
+<p>ブロックヘッダーの長さは80byteでなくてはいけない。</p>
+<div class="highlight"><pre class="chroma">require(blockHeaderBytes.length == 80, ERR_INVALID_HEADER_FORMAT);</pre></div>
+<h3 id="testcase-4-shall-we-make-sure-we-are-building-a-chain-and-not-storing-random-blocks">TESTCASE 4: Shall we make sure we are building a chain and not storing random blocks?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 4: submit block where prev block is not in main chain - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="nx">block2</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block2</span><span class="p">.</span><span class="nx">header</span><span class="p">),</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_PREV_BLOCK</span><span class="p">)</span>
+    <span class="p">}),</span>
+</code></pre></div>
+<p>Previous block が store されてなければ、不正。</p>
+<div class="highlight"><pre class="chroma">require(_headers[hashPrevBlock].merkleRoot != 0, ERR_PREV_BLOCK_NOT_FOUND);</pre></div>
+<h3 id="testcase-5-did-the-miner-do-the-work">TESTCASE 5: Did the miner do the work?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 5: weak block submission - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">fakeGenesis</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">hash</span><span class="o">:</span> <span class="s2">&#34;0x00000000000000000012af6694accf510ca4a979824f30f362d387821564ca93&#34;</span><span class="p">,</span>
+        <span class="nx">height</span><span class="o">:</span> <span class="mi">597613</span><span class="p">,</span>
+        <span class="nx">merkleroot</span><span class="o">:</span> <span class="s2">&#34;0x1c7b7ac77c221e1c0410eca20c002fa7b6467ba966d700868928dae4693b3b78&#34;</span><span class="p">,</span>
+        <span class="nx">header</span><span class="o">:</span> <span class="s2">&#34;0x00000020614db6ddb63ec3a51555336aed1fa4b86e8cc52e01900e000000000000000000783b3b69e4da28898600d766a97b46b6a72f000ca2ec10041c1e227cc77a7b1c6a43955d240f1617cb069aed&#34;</span>
+    <span class="p">},</span>
+        <span class="nx">fakeBlock</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="nx">hash</span><span class="o">:</span> <span class="s2">&#34;0x000000000000000000050db24a549b7b9dbbc9de1f44cd94e82cc6863b4f4fc0&#34;</span><span class="p">,</span>
+            <span class="nx">height</span><span class="o">:</span> <span class="mi">597614</span><span class="p">,</span>
+            <span class="nx">merkleroot</span><span class="o">:</span> <span class="s2">&#34;0xc090099a4b0b7245724be6c7d58a64e0bd7718866a5afa81aa3e63ffa8acd69d&#34;</span><span class="p">,</span>
+            <span class="nx">header</span><span class="o">:</span> <span class="s2">&#34;0x0000002093ca64158287d362f3304f8279a9a40c51cfac9466af120000000000000000009dd6aca8ff633eaa81fa5a6a861877bde0648ad5c7e64b7245720b4b9a0990c07745955d240f16171c168c88&#34;</span>
+        <span class="p">},</span>
+        <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">setInitialParent</span><span class="p">(</span><span class="nx">fakeGenesis</span><span class="p">.</span><span class="nx">header</span><span class="p">,</span>
+            <span class="nx">fakeGenesis</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
+        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">fakeBlock</span><span class="p">.</span><span class="nx">header</span><span class="p">),</span>
+            <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_LOW_DIFF</span><span class="p">)</span>
+    <span class="p">}),</span>
+</code></pre></div><div class="highlight"><pre class="chroma">uint256 target = getTargetFromHeader(blockHeaderBytes)</pre></div>
+<p>で、difficulty target を取得している。
+ブロックのハッシュ値がこれを上回らなければOK。</p>
+<div class="highlight"><pre class="chroma">require(hashCurrentBlock &lt;= bytes32(target), ERR_DIFF_TARGET_HEADER);</pre></div>
+<h3 id="testcase-6-txid-is-provided-by-the-user-what-could-go-wrong">TESTCASE 6: txid is provided by the user. What could go wrong?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 6: empty txid - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span>
+            <span class="s2">&#34;StoreHeader&#34;</span><span class="p">,</span>
+            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
+            <span class="nx">tx</span> <span class="o">=</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">tx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">verifyTx</span><span class="p">(</span><span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+                <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span>
+                <span class="nx">tx</span><span class="p">.</span><span class="nx">tx_index</span><span class="p">,</span>
+                <span class="nx">tx</span><span class="p">.</span><span class="nx">merklePath</span><span class="p">,</span>
+                <span class="mi">0</span><span class="p">),</span>
+                <span class="nx">t</span><span class="p">.</span><span class="nx">ERR_INVALID_TXID</span><span class="p">)</span>
+    <span class="p">}),</span>
+</code></pre></div>
+<p>トランザクションIDが0だったら不正。</p>
+<div class="highlight"><pre class="chroma">require(txid != bytes32(0), ERR_INVALID_TXID);</pre></div>
+<h3 id="testcase-8-are-we-sure-this-transaction-is-securely-included">TESTCASE 8: Are we sure this transaction is &ldquo;securely&rdquo; included?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 8: missing tx confirmation check - should fail&#34;</span><span class="p">,</span>
+    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(),</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span>
+            <span class="s2">&#34;StoreHeader&#34;</span><span class="p">,</span>
+            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
+            <span class="nx">confirmations</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="nx">r</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span>
+                <span class="mi">4</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span> <span class="p">}),</span>
+            <span class="nx">tx</span> <span class="o">=</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">tx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">verifyTx</span><span class="p">(</span><span class="nx">tx</span><span class="p">.</span><span class="nx">tx_id</span><span class="p">,</span>
+                <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span>
+                <span class="nx">tx</span><span class="p">.</span><span class="nx">tx_index</span><span class="p">,</span>
+                <span class="nx">tx</span><span class="p">.</span><span class="nx">merklePath</span><span class="p">,</span>
+                <span class="nx">confirmations</span><span class="p">),</span>
+                <span class="nx">t</span><span class="p">.</span><span class="nx">ERR_CONFIRMS</span><span class="p">)</span>
+    <span class="p">})</span>
+</code></pre></div>
+<p>10 confirmations してるか確認すればいい</p>
+<div class="highlight"><pre class="chroma">require(_headers[_heaviestBlock].blockHeight - txBlockHeight &gt;= confirmations, ERR_CONFIRMS)</pre></div>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://minaminao.com/tags/blockchain/">Blockchain</a>&nbsp;
+            
+              <a href="https://minaminao.com/tags/ctf/">CTF</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fminaminao.com%2fpost%2f2019-10-11-devcon5-relay-attack%2f&amp;text=Devcon%205%20-%20%22Chain%20Relay%20Under%20Attack%20CTF%22%20Writeup&amp;via=vinami" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fminaminao.com%2fpost%2f2019-10-11-devcon5-relay-attack%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fminaminao.com%2fpost%2f2019-10-11-devcon5-relay-attack%2f&amp;title=Devcon%205%20-%20%22Chain%20Relay%20Under%20Attack%20CTF%22%20Writeup" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fminaminao.com%2fpost%2f2019-10-11-devcon5-relay-attack%2f&amp;title=Devcon%205%20-%20%22Chain%20Relay%20Under%20Attack%20CTF%22%20Writeup" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fminaminao.com%2fpost%2f2019-10-11-devcon5-relay-attack%2f&amp;title=Devcon%205%20-%20%22Chain%20Relay%20Under%20Attack%20CTF%22%20Writeup" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fminaminao.com%2fpost%2f2019-10-11-devcon5-relay-attack%2f&amp;description=Devcon%205%20-%20%22Chain%20Relay%20Under%20Attack%20CTF%22%20Writeup" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/post/2019-10-20-seccon-online-ctf/">SECCON 2019 Online CTF Writeup</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+            <li class="next">
+              <a href="https://minaminao.com/post/2019-10-20-seccon-online-ctf/" data-toggle="tooltip" data-placement="top" title="SECCON 2019 Online CTF Writeup">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://github.com/minaminao" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/vinami" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.kaggle.com/mnmnao" title="kaggle">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-kaggle fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              minaminao
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2019
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://minaminao.com">minaminao</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.58.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://minaminao.com/js/main.js"></script>
+<script src="https://minaminao.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://minaminao.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
