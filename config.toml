@@ -1,7 +1,7 @@
 publishDir = "docs"
 baseurl = "https://minaminao.com"
 DefaultContentLanguage = "en"
-title = "( ˘ω˘ )"
+title = "minaminao"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
 pygmentsStyle = "trac"
@@ -14,7 +14,7 @@ pygmentsCodefencesGuessSyntax = true
 #googleAnalytics = "XXX"
 
 [Params]
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+homeTitle = "articles" # Set a different text for the header on the home page
   # subtitle = "Build a beautiful and simple website in minutes"
   mainSections = ["post","posts"]
   logo = "img/avatar-minaminao.png" # Expecting square dimensions
