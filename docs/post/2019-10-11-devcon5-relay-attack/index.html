@@ -15,7 +15,8 @@ Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰え�
 問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
 attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
 TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
-it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。">
+it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }), Genesis block が改ざんされないようにする問題。
+require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET); や">
   <meta name="author" content="minaminao"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -64,7 +65,7 @@ it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&
     "name" : "minaminao"
   },
   "headline": "Devcon 5 - \x22Chain Relay Under Attack CTF\x22 Writeup",
-  "description" : "Devcon 5 \/\/ Oct 8 - 11, 2019\nの3日目に開催されたworkshop「Nuts and Bolts of Cross-Chain Communication」でのCTFが新鮮で面白かったです。(DEFCONではない)\n問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、彼らのクロスチェーンコミュニケーションの論文を参照。\nFlagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。\n問題 問題リポジトリ: crossclaim\/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop\nattackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。\nTESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース\nit(\x26#34;TESTCASE 1: set duplicate initial parent - should fail\x26#34;, async () =\x26gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。",
+  "description" : "Devcon 5 \/\/ Oct 8 - 11, 2019\nの3日目に開催されたworkshop「Nuts and Bolts of Cross-Chain Communication」でのCTFが新鮮で面白かったです。(DEFCONではない)\n問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、彼らのクロスチェーンコミュニケーションの論文を参照。\nFlagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。\n問題 問題リポジトリ: crossclaim\/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop\nattackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。\nTESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース\nit(\x26#34;TESTCASE 1: set duplicate initial parent - should fail\x26#34;, async () =\x26gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }), Genesis block が改ざんされないようにする問題。\nrequire(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET); や",
   "inLanguage" : "en",
   "wordCount":  430 ,
   "datePublished" : "2019-10-11T13:55:33",
@@ -93,7 +94,8 @@ Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰え�
 問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
 attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
 TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
-it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。">
+it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }), Genesis block が改ざんされないようにする問題。
+require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET); や">
 <meta property="og:image" content="https://minaminao.com/img/avatar-minaminao.png" />
 <meta property="og:url" content="https://minaminao.com/post/2019-10-11-devcon5-relay-attack/" />
 <meta property="og:type" content="website" />
@@ -108,7 +110,7 @@ it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&
   <meta name="twitter:site" content="@vinami" />
   <meta name="twitter:creator" content="@vinami" />
   <link href='https://minaminao.com/img/favicon-minaminao.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.64.0-DEV" />
   <link rel="alternate" href="https://minaminao.com/index.xml" type="application/rss+xml" title="minaminao"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://minaminao.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -322,151 +324,135 @@ it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<p><a href="https://devcon.org/">Devcon 5 // Oct 8 - 11, 2019</a></p>
-
+        <p><a href="https://devcon.org/">Devcon 5 // Oct 8 - 11, 2019</a></p>
 <p>の3日目に開催されたworkshop「<a href="https://devcon.org/agenda?talk=recmTw2dH0oMt9Dzb">Nuts and Bolts of Cross-Chain Communication</a>」でのCTFが新鮮で面白かったです。(DEFCONではない)</p>
-
 <p>問題はシンプルで、「Ethereumのスマートコントラクトが与えられる。このコントラクトはBitcoinのブロックチェーンを構築するが、不正なブロックが送られるとブロックチェーンが壊れる。直してね」というもの。なんでこういう問題かっていうのは、<a href="https://eprint.iacr.org/2019/1128.pdf">彼らのクロスチェーンコミュニケーションの論文</a>を参照。</p>
-
 <p>Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰えるフルフィードバック形式。</p>
-
 <h2 id="問題">問題</h2>
-
 <p>問題リポジトリ: <a href="https://github.com/crossclaim/devcon5-relay-attack">crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop</a></p>
-
 <p><code>attackTestCases.test.min.js</code>にサンプルケースが転がってます。
 testで結果が変わることがあって大変でした。</p>
-
 <h3 id="testcase-1-do-we-allow-users-to-reset-the-relay-with-a-new-genesis-block-at-will">TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will??</h3>
-
 <p><strong>サンプルケース</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">setInitialParent</span><span class="p">(</span><span class="nx">genesis</span><span class="p">.</span><span class="nx">header</span><span class="p">,</span>
-            <span class="nx">genesis</span><span class="p">.</span><span class="nx">height</span><span class="p">))</span>
-    <span class="p">}),</span>
-</code></pre></div>
-<p>Genesis block が改ざんされないようにする問題。</p>
-<div class="highlight"><pre class="chroma">require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET);</pre></div>
-<p>や</p>
-<div class="highlight"><pre class="chroma">require(_heaviestHeight == 0, ERR_GENESIS_ALREADY_SET);</pre></div>
-<p>を追加すればいい。</p>
-
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">setInitialParent</span><span class="p">(</span><span class="nx">genesis</span><span class="p">.</span><span class="nx">header</span><span class="p">,</span>
+            <span class="nx">genesis</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span><span class="p">)</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+</code></pre></div><p>Genesis block が改ざんされないようにする問題。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET);
+</code></pre></div><p>や</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(_heaviestHeight == 0, ERR_GENESIS_ALREADY_SET);
+</code></pre></div><p>を追加すればいい。</p>
 <h3 id="testcase-2-maybe-we-should-not-allow-duplicate-submissions">TESTCASE 2: Maybe we should not allow duplicate submissions?</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 2: duplicate block submission - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">;</span>
+        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span><span class="p">;</span>
         <span class="nx">c</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span>
             <span class="s2">&#34;StoreHeader&#34;</span><span class="p">,</span>
-            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
-            <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">),</span>
+            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span><span class="p">,</span>
+            <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span><span class="p">,</span>
                 <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_DUPLICATE_BLOCK</span><span class="p">)</span>
-    <span class="p">}),</span>
-</code></pre></div>
-<p>すでに block が store されてきたらダメ。</p>
-<div class="highlight"><pre class="chroma">require(_headers[hashCurrentBlock].merkleRoot == 0, ERR_DUPLICATE_BLOCK_SUBMISSION);</pre></div>
-<h3 id="testcase-3a-3b-block-header-is-provided-by-the-user-what-could-go-wrong">TESTCASE 3a, 3b: block header is provided by the user. What could go wrong??</h3>
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+</code></pre></div><p>すでに block が store されてきたらダメ。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(_headers[hashCurrentBlock].merkleRoot == 0, ERR_DUPLICATE_BLOCK_SUBMISSION);
+</code></pre></div><h3 id="testcase-3a-3b-block-header-is-provided-by-the-user-what-could-go-wrong">TESTCASE 3a, 3b: block header is provided by the user. What could go wrong??</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 3a: too large block header - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span> <span class="o">+</span> <span class="s2">&#34;123&#34;</span><span class="p">),</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">,</span>
+        <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span> <span class="o">+</span> <span class="s2">&#34;123&#34;</span><span class="p">)</span><span class="p">,</span>
             <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_INVALID_HEADER</span><span class="p">)</span>
-    <span class="p">}),</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
 <span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 3b: too small block header - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
-            <span class="mi">28</span><span class="p">)),</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">,</span>
+        <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
+            <span class="mi">28</span><span class="p">)</span><span class="p">)</span><span class="p">,</span>
             <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_INVALID_HEADER</span><span class="p">)</span>
-    <span class="p">}),</span>
-</code></pre></div>
-<p>ブロックヘッダーの長さは80byteでなくてはいけない。</p>
-<div class="highlight"><pre class="chroma">require(blockHeaderBytes.length == 80, ERR_INVALID_HEADER_FORMAT);</pre></div>
-<h3 id="testcase-4-shall-we-make-sure-we-are-building-a-chain-and-not-storing-random-blocks">TESTCASE 4: Shall we make sure we are building a chain and not storing random blocks?</h3>
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+</code></pre></div><p>ブロックヘッダーの長さは80byteでなくてはいけない。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(blockHeaderBytes.length == 80, ERR_INVALID_HEADER_FORMAT);
+</code></pre></div><h3 id="testcase-4-shall-we-make-sure-we-are-building-a-chain-and-not-storing-random-blocks">TESTCASE 4: Shall we make sure we are building a chain and not storing random blocks?</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 4: submit block where prev block is not in main chain - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="nx">block2</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block2</span><span class="p">.</span><span class="nx">header</span><span class="p">),</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">block2</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="p">,</span>
+        <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block2</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span><span class="p">,</span>
             <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_PREV_BLOCK</span><span class="p">)</span>
-    <span class="p">}),</span>
-</code></pre></div>
-<p>Previous block が store されてなければ、不正。</p>
-<div class="highlight"><pre class="chroma">require(_headers[hashPrevBlock].merkleRoot != 0, ERR_PREV_BLOCK_NOT_FOUND);</pre></div>
-<h3 id="testcase-5-did-the-miner-do-the-work">TESTCASE 5: Did the miner do the work?</h3>
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+</code></pre></div><p>Previous block が store されてなければ、不正。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(_headers[hashPrevBlock].merkleRoot != 0, ERR_PREV_BLOCK_NOT_FOUND);
+</code></pre></div><h3 id="testcase-5-did-the-miner-do-the-work">TESTCASE 5: Did the miner do the work?</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 5: weak block submission - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">fakeGenesis</span> <span class="o">=</span> <span class="p">{</span>
         <span class="nx">hash</span><span class="o">:</span> <span class="s2">&#34;0x00000000000000000012af6694accf510ca4a979824f30f362d387821564ca93&#34;</span><span class="p">,</span>
         <span class="nx">height</span><span class="o">:</span> <span class="mi">597613</span><span class="p">,</span>
         <span class="nx">merkleroot</span><span class="o">:</span> <span class="s2">&#34;0x1c7b7ac77c221e1c0410eca20c002fa7b6467ba966d700868928dae4693b3b78&#34;</span><span class="p">,</span>
         <span class="nx">header</span><span class="o">:</span> <span class="s2">&#34;0x00000020614db6ddb63ec3a51555336aed1fa4b86e8cc52e01900e000000000000000000783b3b69e4da28898600d766a97b46b6a72f000ca2ec10041c1e227cc77a7b1c6a43955d240f1617cb069aed&#34;</span>
-    <span class="p">},</span>
+    <span class="p">}</span><span class="p">,</span>
         <span class="nx">fakeBlock</span> <span class="o">=</span> <span class="p">{</span>
             <span class="nx">hash</span><span class="o">:</span> <span class="s2">&#34;0x000000000000000000050db24a549b7b9dbbc9de1f44cd94e82cc6863b4f4fc0&#34;</span><span class="p">,</span>
             <span class="nx">height</span><span class="o">:</span> <span class="mi">597614</span><span class="p">,</span>
             <span class="nx">merkleroot</span><span class="o">:</span> <span class="s2">&#34;0xc090099a4b0b7245724be6c7d58a64e0bd7718866a5afa81aa3e63ffa8acd69d&#34;</span><span class="p">,</span>
             <span class="nx">header</span><span class="o">:</span> <span class="s2">&#34;0x0000002093ca64158287d362f3304f8279a9a40c51cfac9466af120000000000000000009dd6aca8ff633eaa81fa5a6a861877bde0648ad5c7e64b7245720b4b9a0990c07745955d240f16171c168c88&#34;</span>
-        <span class="p">},</span>
-        <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">setInitialParent</span><span class="p">(</span><span class="nx">fakeGenesis</span><span class="p">.</span><span class="nx">header</span><span class="p">,</span>
-            <span class="nx">fakeGenesis</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
-        <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">fakeBlock</span><span class="p">.</span><span class="nx">header</span><span class="p">),</span>
+        <span class="p">}</span><span class="p">,</span>
+        <span class="nx">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">setInitialParent</span><span class="p">(</span><span class="nx">fakeGenesis</span><span class="p">.</span><span class="nx">header</span><span class="p">,</span>
+            <span class="nx">fakeGenesis</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">fakeBlock</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span><span class="p">,</span>
             <span class="nx">t</span><span class="p">.</span><span class="nx">ERROR_CODES</span><span class="p">.</span><span class="nx">ERR_LOW_DIFF</span><span class="p">)</span>
-    <span class="p">}),</span>
-</code></pre></div><div class="highlight"><pre class="chroma">uint256 target = getTargetFromHeader(blockHeaderBytes)</pre></div>
-<p>で、difficulty target を取得している。
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">uint256 target = getTargetFromHeader(blockHeaderBytes)
+</code></pre></div><p>で、difficulty target を取得している。
 ブロックのハッシュ値がこれを上回らなければOK。</p>
-<div class="highlight"><pre class="chroma">require(hashCurrentBlock &lt;= bytes32(target), ERR_DIFF_TARGET_HEADER);</pre></div>
-<h3 id="testcase-6-txid-is-provided-by-the-user-what-could-go-wrong">TESTCASE 6: txid is provided by the user. What could go wrong?</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(hashCurrentBlock &lt;= bytes32(target), ERR_DIFF_TARGET_HEADER);
+</code></pre></div><h3 id="testcase-6-txid-is-provided-by-the-user-what-could-go-wrong">TESTCASE 6: txid is provided by the user. What could go wrong?</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 6: empty txid - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">;</span>
+        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span><span class="p">;</span>
         <span class="nx">c</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span>
             <span class="s2">&#34;StoreHeader&#34;</span><span class="p">,</span>
-            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
-            <span class="nx">tx</span> <span class="o">=</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">tx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-            <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">verifyTx</span><span class="p">(</span><span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span><span class="p">,</span>
+            <span class="nx">tx</span> <span class="o">=</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">tx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span>
+            <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">verifyTx</span><span class="p">(</span><span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
                 <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span>
                 <span class="nx">tx</span><span class="p">.</span><span class="nx">tx_index</span><span class="p">,</span>
                 <span class="nx">tx</span><span class="p">.</span><span class="nx">merklePath</span><span class="p">,</span>
-                <span class="mi">0</span><span class="p">),</span>
+                <span class="mi">0</span><span class="p">)</span><span class="p">,</span>
                 <span class="nx">t</span><span class="p">.</span><span class="nx">ERR_INVALID_TXID</span><span class="p">)</span>
-    <span class="p">}),</span>
-</code></pre></div>
-<p>トランザクションIDが0だったら不正。</p>
-<div class="highlight"><pre class="chroma">require(txid != bytes32(0), ERR_INVALID_TXID);</pre></div>
-<h3 id="testcase-8-are-we-sure-this-transaction-is-securely-included">TESTCASE 8: Are we sure this transaction is &ldquo;securely&rdquo; included?</h3>
+    <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+</code></pre></div><p>トランザクションIDが0だったら不正。</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(txid != bytes32(0), ERR_INVALID_TXID);
+</code></pre></div><h3 id="testcase-8-are-we-sure-this-transaction-is-securely-included">TESTCASE 8: Are we sure this transaction is &ldquo;securely&rdquo; included?</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">it</span><span class="p">(</span><span class="s2">&#34;TESTCASE 8: missing tx confirmation check - should fail&#34;</span><span class="p">,</span>
-    <span class="kr">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="p">(),</span>
-        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">);</span>
+    <span class="nx">async</span> <span class="p">(</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">l</span><span class="p">(</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">block1</span> <span class="o">=</span> <span class="nx">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">;</span>
+        <span class="kd">let</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">block1</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span><span class="p">;</span>
         <span class="nx">c</span><span class="p">.</span><span class="nx">eventEmitted</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span>
             <span class="s2">&#34;StoreHeader&#34;</span><span class="p">,</span>
-            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">),</span>
+            <span class="nx">e</span> <span class="p">=&gt;</span> <span class="nx">e</span><span class="p">.</span><span class="nx">blockHeight</span> <span class="o">==</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span><span class="p">,</span>
             <span class="nx">confirmations</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
             <span class="nx">r</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span>
-                <span class="mi">4</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span> <span class="p">}),</span>
-            <span class="nx">tx</span> <span class="o">=</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">tx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-            <span class="kr">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">verifyTx</span><span class="p">(</span><span class="nx">tx</span><span class="p">.</span><span class="nx">tx_id</span><span class="p">,</span>
+                <span class="mi">4</span><span class="p">)</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">relay</span><span class="p">.</span><span class="nx">submitBlockHeader</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">header</span><span class="p">)</span> <span class="p">}</span><span class="p">)</span><span class="p">,</span>
+            <span class="nx">tx</span> <span class="o">=</span> <span class="nx">block1</span><span class="p">.</span><span class="nx">tx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span>
+            <span class="nx">await</span> <span class="nx">c</span><span class="p">.</span><span class="nx">reverts</span><span class="p">(</span><span class="nx">relay</span><span class="p">.</span><span class="nx">verifyTx</span><span class="p">(</span><span class="nx">tx</span><span class="p">.</span><span class="nx">tx_id</span><span class="p">,</span>
                 <span class="nx">block1</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span>
                 <span class="nx">tx</span><span class="p">.</span><span class="nx">tx_index</span><span class="p">,</span>
                 <span class="nx">tx</span><span class="p">.</span><span class="nx">merklePath</span><span class="p">,</span>
-                <span class="nx">confirmations</span><span class="p">),</span>
+                <span class="nx">confirmations</span><span class="p">)</span><span class="p">,</span>
                 <span class="nx">t</span><span class="p">.</span><span class="nx">ERR_CONFIRMS</span><span class="p">)</span>
-    <span class="p">})</span>
+    <span class="p">}</span><span class="p">)</span>
+</code></pre></div><p>10 confirmations してるか確認すればいい</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">require(_headers[_heaviestBlock].blockHeight - txBlockHeight &gt;= confirmations, ERR_CONFIRMS)
 </code></pre></div>
-<p>10 confirmations してるか確認すればいい</p>
-<div class="highlight"><pre class="chroma">require(_headers[_heaviestBlock].blockHeight - txBlockHeight &gt;= confirmations, ERR_CONFIRMS)</pre></div>
 
         
           <div class="blog-tags">
@@ -635,7 +621,7 @@ testで結果が変わることがあって大変でした。</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.58.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.64.0-DEV</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

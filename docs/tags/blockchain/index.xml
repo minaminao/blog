@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blockchain on minaminao</title>
@@ -23,7 +23,8 @@ Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰え�
 問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
 attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
 TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
-it(&amp;#34;TESTCASE 1: set duplicate initial parent - should fail&amp;#34;, async () =&amp;gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。</description>
+it(&amp;#34;TESTCASE 1: set duplicate initial parent - should fail&amp;#34;, async () =&amp;gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }), Genesis block が改ざんされないようにする問題。
+require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET); や</description>
     </item>
     
   </channel>

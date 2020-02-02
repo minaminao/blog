@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CTF on minaminao</title>
@@ -17,8 +17,8 @@
       
       <guid>https://minaminao.com/post/2019-10-20-seccon-online-ctf/</guid>
       <description>SECCON 2019
-チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。
- Table of Contents  [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
+チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。
+ Table of Contents   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
 import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher): s = &amp;#39;&amp;#39; for i in range(len(cipher)): c = cipher[i] - 0x20 - (ord(key[i % len(key)]) - 0x20) if c &amp;lt; 0: c += (0x7e - 0x20 + 1) c += 0x20 s += chr(c) return s key1 = &amp;#34;SECCON&amp;#34; key2 = &amp;#34;seccon2019&amp;#34; cipher = AES.</description>
     </item>
     
@@ -35,7 +35,8 @@ Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰え�
 問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
 attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
 TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
-it(&amp;#34;TESTCASE 1: set duplicate initial parent - should fail&amp;#34;, async () =&amp;gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。</description>
+it(&amp;#34;TESTCASE 1: set duplicate initial parent - should fail&amp;#34;, async () =&amp;gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }), Genesis block が改ざんされないようにする問題。
+require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET); や</description>
     </item>
     
   </channel>

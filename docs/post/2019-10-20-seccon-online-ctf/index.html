@@ -9,8 +9,8 @@
 
   <title>SECCON 2019 Online CTF Writeup - minaminao</title>
   <meta name="description" content="SECCON 2019
-チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。
- Table of Contents   [crypto] coffee_break [misc] Beeeeeeeeeer [crypto] ZKPay [web] web_search [crypto] Crazy Repetition of Codes [misc] Sandstorm   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
+チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。
+ Table of Contents   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
 import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher): s = &#39;&#39; for i in range(len(cipher)): c = cipher[i] - 0x20 - (ord(key[i % len(key)]) - 0x20) if c &lt; 0: c &#43;= (0x7e - 0x20 &#43; 1) c &#43;= 0x20 s &#43;= chr(c) return s key1 = &#34;SECCON&#34; key2 = &#34;seccon2019&#34; cipher = AES.">
   <meta name="author" content="minaminao"/><script type="application/ld+json">
 {
@@ -60,9 +60,9 @@ import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher):
     "name" : "minaminao"
   },
   "headline": "SECCON 2019 Online CTF Writeup",
-  "description" : "SECCON 2019\nチーム「.\/Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。\n Table of Contents   [crypto] coffee_break [misc] Beeeeeeeeeer [crypto] ZKPay [web] web_search [crypto] Crazy Repetition of Codes [misc] Sandstorm   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。\nimport sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher): s = \x26#39;\x26#39; for i in range(len(cipher)): c = cipher[i] - 0x20 - (ord(key[i % len(key)]) - 0x20) if c \x26lt; 0: c \x2b= (0x7e - 0x20 \x2b 1) c \x2b= 0x20 s \x2b= chr(c) return s key1 = \x26#34;SECCON\x26#34; key2 = \x26#34;seccon2019\x26#34; cipher = AES.",
+  "description" : "SECCON 2019\nチーム「.\/Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。\n Table of Contents   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。\nimport sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher): s = \x26#39;\x26#39; for i in range(len(cipher)): c = cipher[i] - 0x20 - (ord(key[i % len(key)]) - 0x20) if c \x26lt; 0: c \x2b= (0x7e - 0x20 \x2b 1) c \x2b= 0x20 s \x2b= chr(c) return s key1 = \x26#34;SECCON\x26#34; key2 = \x26#34;seccon2019\x26#34; cipher = AES.",
   "inLanguage" : "en",
-  "wordCount":  255 ,
+  "wordCount":  241 ,
   "datePublished" : "2019-10-20T18:15:23",
   "dateModified" : "2019-10-20T18:15:23",
   "image" : "https:\/\/minaminao.com\/img\/avatar-minaminao.png",
@@ -83,8 +83,8 @@ import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher):
 
 <meta property="og:title" content="SECCON 2019 Online CTF Writeup" />
 <meta property="og:description" content="SECCON 2019
-チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。
- Table of Contents   [crypto] coffee_break [misc] Beeeeeeeeeer [crypto] ZKPay [web] web_search [crypto] Crazy Repetition of Codes [misc] Sandstorm   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
+チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。
+ Table of Contents   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
 import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher): s = &#39;&#39; for i in range(len(cipher)): c = cipher[i] - 0x20 - (ord(key[i % len(key)]) - 0x20) if c &lt; 0: c &#43;= (0x7e - 0x20 &#43; 1) c &#43;= 0x20 s &#43;= chr(c) return s key1 = &#34;SECCON&#34; key2 = &#34;seccon2019&#34; cipher = AES.">
 <meta property="og:image" content="https://minaminao.com/img/avatar-minaminao.png" />
 <meta property="og:url" content="https://minaminao.com/post/2019-10-20-seccon-online-ctf/" />
@@ -93,14 +93,15 @@ import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher):
 
   <meta name="twitter:title" content="SECCON 2019 Online CTF Writeup" />
   <meta name="twitter:description" content="SECCON 2019
-チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。
- Table of Contents   [crypto] coffee_break [misc] Beeeeeeeeeer [crypto] ZKPay [web] web_search [crypto] Crazy …">
+チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。
+ Table of Contents   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
+import sys from Crypto.Cipher import AES import …">
   <meta name="twitter:image" content="https://minaminao.com/img/avatar-minaminao.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@vinami" />
   <meta name="twitter:creator" content="@vinami" />
   <link href='https://minaminao.com/img/favicon-minaminao.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.64.0-DEV" />
   <link rel="alternate" href="https://minaminao.com/index.xml" type="application/rss+xml" title="minaminao"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://minaminao.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -250,7 +251,7 @@ import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher):
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;255&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;241&nbsp;words
   
   
     
@@ -289,7 +290,7 @@ import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher):
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;255&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;241&nbsp;words
   
   
     
@@ -314,131 +315,90 @@ import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher):
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
-<p><a href="https://www.seccon.jp/2019/">SECCON 2019</a></p>
-
+        <p><a href="https://www.seccon.jp/2019/">SECCON 2019</a></p>
 <p>チーム「./Vespiary」で出て 37 位 2402 点でした。
-以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。</p>
-
+以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。</p>
 <h1> Table of Contents </h1>
-<nav id="TableOfContents">
-<ul>
-<li><a href="#crypto-coffee-break">[crypto] coffee_break</a></li>
-<li><a href="#misc-beeeeeeeeeer">[misc] Beeeeeeeeeer</a></li>
-<li><a href="#crypto-zkpay">[crypto] ZKPay</a></li>
-<li><a href="#web-web-search">[web] web_search</a></li>
-<li><a href="#crypto-crazy-repetition-of-codes">[crypto] Crazy Repetition of Codes</a></li>
-<li><a href="#misc-sandstorm">[misc] Sandstorm</a></li>
-</ul>
-</nav>
-
-<h1 id="crypto-coffee-break">[crypto] coffee_break</h1>
-
+<nav id="TableOfContents"></nav>
+<h1 id="crypto-coffee_break">[crypto] coffee_break</h1>
 <p>ソースコードを読んで逆算するプログラムを書けば良い。</p>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
 <span class="kn">import</span> <span class="nn">base64</span>
 
-<span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">cipher</span><span class="p">):</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cipher</span><span class="p">)):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x20</span> <span class="o">-</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)])</span> <span class="o">-</span> <span class="mh">0x20</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">cipher</span><span class="p">)</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;</span><span class="s1">&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cipher</span><span class="p">)</span><span class="p">)</span><span class="p">:</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mh">0x20</span> <span class="o">-</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="p">]</span><span class="p">)</span> <span class="o">-</span> <span class="mh">0x20</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">c</span> <span class="o">+=</span> <span class="p">(</span><span class="mh">0x7e</span> <span class="o">-</span> <span class="mh">0x20</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">+=</span> <span class="mh">0x20</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+            <span class="n">c</span> <span class="o">+</span><span class="o">=</span> <span class="p">(</span><span class="mh">0x7e</span> <span class="o">-</span> <span class="mh">0x20</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">+</span><span class="o">=</span> <span class="mh">0x20</span>
+        <span class="n">s</span> <span class="o">+</span><span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">s</span>
 
-<span class="n">key1</span> <span class="o">=</span> <span class="s2">&#34;SECCON&#34;</span>
-<span class="n">key2</span> <span class="o">=</span> <span class="s2">&#34;seccon2019&#34;</span>
-<span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key2</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">16</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">key2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">16</span><span class="p">)),</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_ECB</span><span class="p">)</span>
+<span class="n">key1</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">SECCON</span><span class="s2">&#34;</span>
+<span class="n">key2</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">seccon2019</span><span class="s2">&#34;</span>
+<span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">key2</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="mh">0x00</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">16</span> <span class="o">-</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">key2</span><span class="p">)</span> <span class="o">%</span> <span class="mi">16</span><span class="p">)</span><span class="p">)</span><span class="p">,</span> <span class="n">AES</span><span class="o">.</span><span class="n">MODE_ECB</span><span class="p">)</span>
 
-<span class="n">encoded</span> <span class="o">=</span> <span class="s2">&#34;FyRyZNBO2MG6ncd3hEkC/yeYKUseI/CxYoZiIeV2fe/Jmtwx+WbWmU1gtMX9m905&#34;</span>
+<span class="n">encoded</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;</span><span class="s2">FyRyZNBO2MG6ncd3hEkC/yeYKUseI/CxYoZiIeV2fe/Jmtwx+WbWmU1gtMX9m905</span><span class="s2">&#34;</span>
 
 <span class="n">enc2</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
 <span class="n">enc1_</span> <span class="o">=</span> <span class="n">cipher</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">enc2</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">decrypt</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">enc1_</span><span class="p">))</span></code></pre></div>
-<p><code>SECCON{Success_Decryption_Yeah_Yeah_SECCON}</code></p>
-
+<span class="k">print</span><span class="p">(</span><span class="n">decrypt</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">enc1_</span><span class="p">)</span><span class="p">)</span>
+</code></pre></div><p><code>SECCON{Success_Decryption_Yeah_Yeah_SECCON}</code></p>
 <h1 id="misc-beeeeeeeeeer">[misc] Beeeeeeeeeer</h1>
-
 <p>とりあえず与えられたシェルスクリプトを実行してみると、文字が増えたり消えたりするCUIアニメーションが表示される。シェルスクリプトで具体的に何が行われているか知るために<strong>気合</strong>で人力フォーマットと<code>echo</code>コマンドを駆使して解読していった。
 適宜<code>bash -x</code>を使うことで楽に解読できる。</p>
-
 <p><code>SECCON{hogefuga3bash}</code></p>
-
 <h1 id="crypto-zkpay">[crypto] ZKPay</h1>
-
 <p>signupにめちゃくちゃ時間がかかる。signupクエリを送った後に、homeへ移動してみると普通に利用できることがわかった。そこで、signupした直後にcreateQRをしてみたが、どうやら1分待たないと正常なQRコードが生成されない。</p>
-
 <p>$1,000,000 / $500 = 2000 で自動化が現実的なので、2000個アカウントを生成してメインのアカウントにお金を送るスクリプトを書いた。</p>
-
 <p>実行に3時間かかったが無事flagを得た。</p>
-
-<p><img src="https://i.gyazo.com/7be2f37c7e9749a01460b1d82a4c98a7.png" alt="" /></p>
-
-<h1 id="web-web-search">[web] web_search</h1>
-
+<p><img src="https://i.gyazo.com/7be2f37c7e9749a01460b1d82a4c98a7.png" alt=""></p>
+<h1 id="web-web_search">[web] web_search</h1>
 <p>適当に記号を入力してみると、<code>'</code>でErrorすることがわかる。
 SQL injection を使う問題であることを疑い、色々実験すると、</p>
-
 <ul>
-<li>空白文字が消える</li>
+<li>空白文字<code> </code>が消える</li>
 <li><code>,</code>が消える</li>
 <li><code>or</code>,<code>and</code>が消える</li>
 <li><code>oorr</code>が<code>or</code>になる</li>
 <li><code>#</code>が効く</li>
 <li><code>/**/</code>が空白代わりになる</li>
 </ul>
-
 <p>などがわかる。</p>
-
 <p><code>#</code>が効くことからMySQLが使われていることが推測でき、
 <code>'oorr'1'='1'#</code>で、</p>
-<div class="highlight"><pre class="chroma">FLAG
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">FLAG
 The flag is &#34;SECCON{Yeah_Sqli_Success_&#34; ... well, the rest of flag is in &#34;flag&#34; table. 
-Try more!</pre></div>
-<p>Flagの前半部分を得る。</p>
-
+Try more!
+</code></pre></div><p>Flagの前半部分を得る。</p>
 <p><code>flag</code>テーブルにflagがあるようなので、UNIONを用いてflagを表示させたいが、<code>,</code>が消されるのでカラム数を合わせることが難しい。</p>
-
 <p>CROSS JOIN を用いて、</p>
-
 <p><code>' OORR '1' = '1' /**/ UNION /**/ SELECT /**/ * /**/ FROM /**/ (SELECT /**/ * /**/ FROM /**/ flag)aaa /**/ CROSS /**/ JOIN /**/ (SELECT /**/ * /**/ FROM /**/ flag)bbb /**/ CROSS /**/ JOIN /**/ (SELECT /**/ * /**/ FROM /**/ flag)ccc#&quot;</code></p>
-
 <p>を送信すると、フラグが得られる。</p>
-
 <p><code>SECCON{Yeah_Sqli_Success_You_Win_Yeah}</code></p>
-
 <h1 id="crypto-crazy-repetition-of-codes">[crypto] Crazy Repetition of Codes</h1>
-
 <p>crc32は決定的な関数なので、鳩の巣原理よりcrcの値の周期が2^32以下であることがわかる。よって<code>int('1'*10000) % 周期</code>の回数crc32を実行すればいい。</p>
-
 <h1 id="misc-sandstorm">[misc] Sandstorm</h1>
-
-<p><img src="https://i.gyazo.com/bb6d5672d1d08dbd55fcdfbef4c7384c.png" alt="" /></p>
-
+<p><img src="https://i.gyazo.com/bb6d5672d1d08dbd55fcdfbef4c7384c.png" alt=""></p>
 <p>画像に<code>My name is Adam</code>とあり、010 Editorなどのツールでファイルを見るとインターレースがAdam7になっているので<a href="https://en.wikipedia.org/wiki/Adam7_algorithm">Adam7 algorithm - Wikipedia</a>が関係していそうとわかる。</p>
-
 <p>これに着想を得て、8ピクセルごとにピクセルを抽出して画像にしてみると、</p>
 <div class="highlight"><pre class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
-<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;sandstorm.png&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">sandstorm.png</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">W</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
 
-<span class="n">img2</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="o">//</span><span class="mi">8</span><span class="p">,</span> <span class="n">H</span><span class="o">//</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">img2</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">RGBA</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">W</span><span class="o">/</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span> <span class="n">H</span><span class="o">/</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">H</span><span class="o">//</span><span class="mi">8</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">W</span><span class="o">//</span><span class="mi">8</span><span class="p">):</span>
-        <span class="n">img2</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">x</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span><span class="n">y</span><span class="o">*</span><span class="mi">8</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">H</span><span class="o">/</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">W</span><span class="o">/</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="p">:</span>
+        <span class="n">img2</span><span class="o">.</span><span class="n">putpixel</span><span class="p">(</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">getpixel</span><span class="p">(</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span><span class="n">y</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
 
-<span class="n">img2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;img2.png&#39;</span><span class="p">)</span></code></pre></div>
-<p><img src="https://i.gyazo.com/e5ccd541bf310d656aa11d8db1aec3d7.png" alt="" /></p>
-
+<span class="n">img2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="s1">img2.png</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div><p><img src="https://i.gyazo.com/e5ccd541bf310d656aa11d8db1aec3d7.png" alt=""></p>
 <p>QRコードが得られる。</p>
-
 <p><code>SECCON{p0nlMpzlCQ5AHol6}</code></p>
 
 
@@ -607,7 +567,7 @@ Try more!</pre></div>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.58.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.64.0-DEV</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

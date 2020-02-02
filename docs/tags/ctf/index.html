@@ -42,7 +42,7 @@
   <meta name="twitter:site" content="@vinami" />
   <meta name="twitter:creator" content="@vinami" />
   <link href='https://minaminao.com/img/favicon-minaminao.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.64.0-DEV" />
   <link rel="alternate" href="https://minaminao.com/index.xml" type="application/rss+xml" title="minaminao"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://minaminao.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -212,7 +212,7 @@
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;255&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;241&nbsp;words
   
   
     
@@ -227,8 +227,8 @@
     <div class="post-entry">
         
         SECCON 2019
-チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと一緒に解いたもの含む）。
- Table of Contents   [crypto] coffee_break [misc] Beeeeeeeeeer [crypto] ZKPay [web] web_search [crypto] Crazy Repetition of Codes [misc] Sandstorm   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
+チーム「./Vespiary」で出て 37 位 2402 点でした。 以下、自分が取り組んだ問題です（チームメンバーと解いたものを含む）。
+ Table of Contents   [crypto] coffee_break ソースコードを読んで逆算するプログラムを書けば良い。
 import sys from Crypto.Cipher import AES import base64 def decrypt(key, cipher): s = &#39;&#39; for i in range(len(cipher)): c = cipher[i] - 0x20 - (ord(key[i % len(key)]) - 0x20) if c &lt; 0: c += (0x7e - 0x20 + 1) c += 0x20 s += chr(c) return s key1 = &#34;SECCON&#34; key2 = &#34;seccon2019&#34; cipher = AES.
         <a href="https://minaminao.com/post/2019-10-20-seccon-online-ctf/" class="post-read-more">[Read More]</a>
         
@@ -283,7 +283,8 @@ Flagを取る形式ではなく、実際に攻撃を捌ければ点数が貰え�
 問題 問題リポジトリ: crossclaim/devcon5-relay-attack: Game repo for DEVCON 5 Cross-Chain Communication Workshop
 attackTestCases.test.min.jsにサンプルケースが転がってます。 testで結果が変わることがあって大変でした。
 TESTCASE 1: Do we allow users to reset the relay with a new genesis block at will?? サンプルケース
-it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }),  Genesis block が改ざんされないようにする問題。
+it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&gt; { l(), await c.reverts(relay.setInitialParent(genesis.header, genesis.height)) }), Genesis block が改ざんされないようにする問題。
+require(_headers[blockHeaderHash].merkleRoot == 0, ERR_GENESIS_ALREADY_SET); や
         <a href="https://minaminao.com/post/2019-10-11-devcon5-relay-attack/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -367,7 +368,7 @@ it(&#34;TESTCASE 1: set duplicate initial parent - should fail&#34;, async () =&
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.58.3</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.64.0-DEV</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
