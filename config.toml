@@ -35,8 +35,10 @@ logo_text = "minaminao"
 logo_home_link = "/"
 main_menu = [
               {url="/about/", name="about"},
-              {url="/contact/", name="contact"},
+            #   {url="/contact/", name="contact"},
 ]
 menu_more = "show more"
 read_more = "read more"
 read_other_posts = "read other posts"
+favicon = "favicon.ico"
+copyright = "© 2020 minaminao"
