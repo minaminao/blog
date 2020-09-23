@@ -7,6 +7,7 @@ date=2020-09-23
 tags = ["Kaggle", "Machine Learning"]
 
 [extra]
+image = "https://i.gyazo.com/8bb01bc1e1f45247926e0621a13c90d4.png"
 +++
 
 KaggleのゲームAIコンペ『[Halite by Two Sigma](https://www.kaggle.com/c/halite/)』に、[minaminao](https://twitter.com/vinami)・[yasagure](https://twitter.com/always_TLE)・[Johannes](https://twitter.com/JohannesMDr)の3人でチーム『team-tokai』として参加しました。（チーム名は高校同期であることに由来。）
