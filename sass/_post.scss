@@ -90,6 +90,12 @@
 
   &-content {
     margin-top: 30px;
+    a:link {
+      color: var(--accent);
+    }
+    a:visited {
+      color: var(--accent);
+    }
   }
 
   &-cover {
@@ -101,6 +107,21 @@
     @media (max-width: $phone-max-width) {
       padding: 10px;
       border-width: 10px;
+    }
+  }
+
+  ol {
+    counter-reset: li;
+    list-style-type: none;
+    padding-left: 0;
+
+    > li:before {
+      color: var(--accent);
+      // font-weight: bold;
+      position: absolute;
+      left: -20px;
+      counter-increment: li; 
+      content: counter(li) ". ";
     }
   }
 

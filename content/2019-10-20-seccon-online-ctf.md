@@ -1,5 +1,5 @@
 +++
-title="SECCON 2019 Online CTF Writeup"
+title="[CTF Writeup] SECCON 2019 Online CTF"
 description=""
 date=2019-10-20
 

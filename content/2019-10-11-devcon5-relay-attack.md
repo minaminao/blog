@@ -1,5 +1,5 @@
 +++
-title='Devcon 5 - "Chain Relay Under Attack CTF" Writeup'
+title='[CTF Writeup] Devcon 5 - "Chain Relay Under Attack CTF"'
 description=""
 date=2019-10-11
 
