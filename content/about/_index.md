@@ -22,8 +22,8 @@ date = 2020-09-19
 
 ## Research Interests
 - Blockchain
+- Cryptography
 - Algorithms and Data Structures
-- Information Security
 - Machine Learning
 
 ## Projects
