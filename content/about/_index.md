@@ -48,6 +48,7 @@ date = 2020-09-19
 
 ## Kaggle
 - Account: [mnmnao](https://www.kaggle.com/mnmnao)
+- 🥈Silver medal, [Halite by Two Sigma](https://www.kaggle.com/c/halite), Solution: [English](https://www.kaggle.com/c/halite/discussion/186153), [Japanese](https://minaminao.com/halite-by-two-sigma/).
 - 🥈Silver medal, [APTOS 2019 Blindness Detection](https://www.kaggle.com/c/aptos2019-blindness-detection).
 - 🥉Bronze medal, [Peking University/Baidu - Autonomous Driving](https://www.kaggle.com/c/pku-autonomous-driving).
 - 🥉Bronze medal, [Santa's Workshop Tour 2019](https://www.kaggle.com/c/santa-workshop-tour-2019).
