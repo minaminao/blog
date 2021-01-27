@@ -1,1 +1,5 @@
 # blog
+
+```
+$ zola serve
+```
