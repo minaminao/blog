@@ -10,7 +10,6 @@ date = 2021-03-03
 - [Twitter](https://twitter.com/vinami)
 - [GitHub](https://github.com/minaminao)
 - [Facebook](https://www.facebook.com/naoya.okanami)
-- [LinkedIn](https://www.linkedin.com/in/naoya-okanami/)
 
 ## Experience
 - [Blockchain Researcher, LayerX](https://layerx.co.jp/), 2019-2021.
