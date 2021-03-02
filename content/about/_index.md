@@ -1,12 +1,10 @@
 +++
-title = "About"
+title = "Naoya Okanami (岡南 直哉)"
 path = "about"
 
 [extra]
-date = 2021-01-27
+date = 2021-03-03
 +++
-
-I'm Naoya Okanami (岡南 直哉).
 
 ## Contact
 - [Twitter](https://twitter.com/vinami)
@@ -14,9 +12,12 @@ I'm Naoya Okanami (岡南 直哉).
 - [Facebook](https://www.facebook.com/naoya.okanami)
 - [LinkedIn](https://www.linkedin.com/in/naoya-okanami/)
 
+## Experience
+- [Blockchain Researcher, LayerX](https://layerx.co.jp/), 2019-2021.
+
 ## Education
-- [Master's Program in Risk and Resilience Engineering, University of Tsukuba](https://www.risk.tsukuba.ac.jp/en/), 2020-.
-- [College of Information Science, University of Tsukuba](https://www.coins.tsukuba.ac.jp/en/), 2020.
+- [Master's Program in Risk and Resilience Engineering, University of Tsukuba](https://www.risk.tsukuba.ac.jp/en/), 2020-2021.
+- [College of Information Science, University of Tsukuba](https://www.coins.tsukuba.ac.jp/en/), 2018-2020.
 
 <!-- ## Research Interests
 - Blockchain
@@ -25,10 +26,13 @@ I'm Naoya Okanami (岡南 直哉).
 - Machine Learning -->
 
 ## Projects
+- Mousse: An Ethereum 2.0 Emulator for Local Testing of Eth2 Applications, The Exploratory IT Human Resources Project.
+    - GitHub: [ethereum-mousse/mousse: An Ethereum 2.0 Emulator for Local Testing of Eth2 Applications](https://github.com/ethereum-mousse/mousse)
+    - Abstract (Japanese): [未踏IT人材発掘・育成事業：2020年度採択プロジェクト概要（岡南・中村PJ）：IPA 独立行政法人 情報処理推進機構](https://www.ipa.go.jp/jinzai/mitou/2020/gaiyou_tk-4.html)
 - Shargri-La: A Transaction-level Sharded Blockchain Simulator, The Exploratory IT Human Resources Project.
     - Ethereum Research: [Shargri-La: A Transaction-level Sharded Blockchain Simulator](https://ethresear.ch/t/shargri-la-a-transaction-level-sharded-blockchain-simulator/7936)
     - GitHub: [shargri-la/shargri-la: A transaction-level sharding simulator for protocol testing against users' behavior on a sharded blockchain.](https://github.com/shargri-La/shargri-La)
-    - Abstract (Japanese): [未踏IT人材発掘・育成事業：2020年度採択プロジェクト概要（岡南・中村PJ）：IPA 独立行政法人 情報処理推進機構](https://www.ipa.go.jp/jinzai/mitou/2020/gaiyou_tk-4.html)
+    - Abstract (Japanese): Same as above.
 
 ## Capture The Flag (CTF)
 - Team: [./Vespiary](https://ctftime.org/team/80092)
